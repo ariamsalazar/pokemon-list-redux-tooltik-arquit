@@ -11,15 +11,6 @@ A React + TypeScript application to browse Pokémons, view their stats and detai
 - Custom hooks for business logic separation
 - TailwindCSS for styling
 
-## Tech Stack
-
-- React 19 + TypeScript
-- Redux Toolkit + React Redux
-- React Router DOM
-- Axios
-- TailwindCSS v4
-- PokeAPI (public, no auth required)
-
 ## Architecture
 
 ```
