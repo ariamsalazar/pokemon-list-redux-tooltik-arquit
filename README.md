@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# Pokédex Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript application to browse Pokémons, view their stats and details — built with Redux Toolkit and Clean Architecture principles.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse Pokémon list with pagination
+- View Pokémon detail (stats, types, abilities)
+- Clean Architecture (Domain, Application, Infrastructure, UI)
+- Redux Toolkit for global state management
+- Custom hooks for business logic separation
+- TailwindCSS for styling
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript
+- Redux Toolkit + React Redux
+- React Router DOM
+- Axios
+- TailwindCSS v4
+- PokeAPI (public, no auth required)
 
-## Expanding the ESLint configuration
+## Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── domain/              # Entities and repository contracts
+│   ├── entities/
+│   └── ports/
+├── application/         # Use cases and custom hooks
+│   ├── useCases/
+│   └── hooks/
+├── infrastructure/      # API adapter and Redux store
+│   ├── adapters/
+│   └── store/redux/
+└── ui/                  # Pages and components
+    ├── pages/
+    └── components/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/ariamsalazar/pokemon-list-redux-tooltik-arquit.git
+cd pokedex-explorer
+
+# Install dependencies
+npm install
 ```
+
+### Running the app
+
+```bash
+# Start the development server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Screenshots
+- Pokemon List + Pagination
+<img width="737" height="369" alt="image" src="https://github.com/user-attachments/assets/c33b0a9c-8357-4e0b-8461-c65b83c4080f" />
+
+- Pokemon detail page
+<img width="931" height="732" alt="image" src="https://github.com/user-attachments/assets/7748c416-b29d-4338-bf84-dc5fa6e18ea8" />
